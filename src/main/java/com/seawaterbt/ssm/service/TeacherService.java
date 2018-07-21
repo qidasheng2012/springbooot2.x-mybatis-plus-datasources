@@ -1,8 +1,8 @@
 package com.seawaterbt.ssm.service;
 
+import com.baomidou.mybatisplus.service.IService;
 import com.seawaterbt.ssm.entity.Teacher;
 
-public interface TeacherService {
 
-    boolean insert(Teacher t);
+public interface TeacherService extends IService<Teacher> {
 }

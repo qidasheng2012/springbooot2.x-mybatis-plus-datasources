@@ -44,7 +44,7 @@ public class MyBatiesPlusConfiguration {
      * SQL执行效率插件
      */
     @Bean
-    @Profile({"dev","test"})// 设置 dev test 环境开启
+    @Profile({"dev","qa"})// 设置 dev test 环境开启
     public PerformanceInterceptor performanceInterceptor() {
         PerformanceInterceptor performanceInterceptor = new PerformanceInterceptor();
         performanceInterceptor.setMaxTime(1000);
@@ -75,7 +75,9 @@ public class MyBatiesPlusConfiguration {
         Map< Object, Object > targetDataSources = new HashMap<>();
         targetDataSources.put(DataSourceEnum.DB1.getValue(), db1);
         targetDataSources.put(DataSourceEnum.DB2.getValue(), db2);
+        //添加数据源
         multipleDataSource.setTargetDataSources(targetDataSources);
+        //设置默认数据源
         multipleDataSource.setDefaultTargetDataSource(db1);
         return multipleDataSource;
     }
