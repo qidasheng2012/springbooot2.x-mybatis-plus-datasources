@@ -6,6 +6,6 @@ public class MultipleDataSource extends AbstractRoutingDataSource {
 
     @Override
     protected Object determineCurrentLookupKey() {
-        return DbContextHolder.getDataSource();
+        return DataSourceContextHolder.getDataSource();
     }
 }

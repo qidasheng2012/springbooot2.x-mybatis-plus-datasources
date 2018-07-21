@@ -21,8 +21,6 @@ mybatis-plus:
     refresh-mapper: true
     #数据库大写下划线转换
     #capital-mode: true
-    # Sequence序列接口实现类配置
-    key-generator: com.baomidou.mybatisplus.incrementer.OracleKeyGenerator
     #逻辑删除配置（下面3个配置）
     logic-delete-value: 4
     logic-not-delete-value: 0
@@ -51,6 +49,3 @@ spring:
               initialSize: 5
               minIdle: 5
               maxActive: 20
-  aop:
-    auto: true
-    proxy-target-class: true

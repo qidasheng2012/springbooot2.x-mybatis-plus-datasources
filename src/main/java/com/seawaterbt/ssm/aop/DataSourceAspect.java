@@ -1,7 +1,7 @@
 package com.seawaterbt.ssm.aop;
 
 import com.seawaterbt.ssm.annotation.DataSource;
-import com.seawaterbt.ssm.multiple.DbContextHolder;
+import com.seawaterbt.ssm.multiple.DataSourceContextHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
@@ -24,11 +24,11 @@ public class DataSourceAspect {
     @Before("pointCut() && @annotation(dataSource)")
     public void doBefore(DataSource dataSource){
         log.info("选择数据源---"+dataSource.value().getValue());
-        DbContextHolder.setDataSource(dataSource.value().getValue());
+        DataSourceContextHolder.setDataSource(dataSource.value().getValue());
     }
 
     @After("pointCut()")
     public void doAfter(){
-        DbContextHolder.clear();
+        DataSourceContextHolder.clear();
     }
 }

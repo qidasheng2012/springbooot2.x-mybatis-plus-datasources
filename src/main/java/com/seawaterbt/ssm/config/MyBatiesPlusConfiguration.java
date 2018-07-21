@@ -97,11 +97,11 @@ public class MyBatiesPlusConfiguration {
         sqlSessionFactory.setPlugins(new Interceptor[]{ //PerformanceInterceptor(),OptimisticLockerInterceptor()
                 paginationInterceptor() //添加分页功能
         });
-        sqlSessionFactory.setGlobalConfig(globalConfiguration());
+        //sqlSessionFactory.setGlobalConfig(globalConfiguration());
         return sqlSessionFactory.getObject();
     }
 
-    @Bean
+    /*@Bean
     public GlobalConfiguration globalConfiguration() {
         GlobalConfiguration conf = new GlobalConfiguration(new LogicSqlInjector());
         conf.setLogicDeleteValue("-1");
@@ -111,5 +111,5 @@ public class MyBatiesPlusConfiguration {
         conf.setDbColumnUnderline(true);
         conf.setRefresh(true);
         return conf;
-    }
+    }*/
 }

@@ -1,6 +1,6 @@
 package com.seawaterbt.ssm.multiple;
 
-public class DbContextHolder {
+public class DataSourceContextHolder {
 
     private static final ThreadLocal<String> contextHolder = new InheritableThreadLocal<>();
 
