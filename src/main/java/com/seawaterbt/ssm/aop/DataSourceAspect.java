@@ -17,18 +17,18 @@ import org.springframework.stereotype.Component;
 public class DataSourceAspect {
 
     @Pointcut("@within(com.seawaterbt.ssm.annotation.DataSource) || @annotation(com.seawaterbt.ssm.annotation.DataSource)")
-    public void pointCut(){
+    public void pointCut() {
 
     }
 
     @Before("pointCut() && @annotation(dataSource)")
-    public void doBefore(DataSource dataSource){
-        log.info("选择数据源---"+dataSource.value().getValue());
+    public void doBefore(DataSource dataSource) {
+        log.info("选择数据源---" + dataSource.value().getValue());
         DataSourceContextHolder.setDataSource(dataSource.value().getValue());
     }
 
     @After("pointCut()")
-    public void doAfter(){
+    public void doAfter() {
         DataSourceContextHolder.clear();
     }
 }

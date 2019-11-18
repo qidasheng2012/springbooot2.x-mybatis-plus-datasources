@@ -1,5 +1,6 @@
 package com.seawaterbt.ssm.entity;
 
+
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
@@ -23,6 +24,6 @@ public class Student {
     private Integer age;
 
     @ApiModelProperty("学生班级")
-    private String classname;
+    private String className;
 
 }

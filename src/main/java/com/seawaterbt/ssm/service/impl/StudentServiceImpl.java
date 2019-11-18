@@ -7,5 +7,5 @@ import com.seawaterbt.ssm.service.StudentService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class StudentServiceImpl extends ServiceImpl<StudentMapper,Student> implements StudentService {
+public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> implements StudentService {
 }
