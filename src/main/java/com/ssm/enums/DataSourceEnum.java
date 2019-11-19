@@ -8,7 +8,8 @@ import lombok.Getter;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public enum DataSourceEnum {
 
-    DB1("db1"), DB2("db2");
+    DB1("db1"),
+    DB2("db2");
 
     private String value;
 

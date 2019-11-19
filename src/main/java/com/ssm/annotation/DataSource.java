@@ -8,6 +8,5 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface DataSource {
-
     DataSourceEnum value() default DataSourceEnum.DB1;
 }

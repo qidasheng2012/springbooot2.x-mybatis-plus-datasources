@@ -27,13 +27,13 @@ import java.util.Map;
 public class MyBatiesPlusConfiguration {
 
     @Bean(name = "db1")
-    @ConfigurationProperties(prefix = "spring.datasource.db1")
+    @ConfigurationProperties(prefix = "spring.datasource.druid.db1")
     public DataSource db1() {
         return DruidDataSourceBuilder.create().build();
     }
 
     @Bean(name = "db2")
-    @ConfigurationProperties(prefix = "spring.datasource.db2")
+    @ConfigurationProperties(prefix = "spring.datasource.druid.db2")
     public DataSource db2() {
         return DruidDataSourceBuilder.create().build();
     }
