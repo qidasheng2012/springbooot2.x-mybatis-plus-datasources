@@ -8,6 +8,7 @@ import com.ssm.vo.TeacherVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,9 +26,7 @@ public class TeacherController {
     @PostMapping("/add")
     public String add(@RequestBody TeacherVo teacher) {
         Teacher tea = new Teacher();
-        tea.setName(teacher.getName());
-        tea.setAge(teacher.getAge());
-        tea.setSubject(teacher.getSubject());
+        BeanUtils.copyProperties(teacher,tea);
         return teacherService.insert(tea) ? "添加成功" : "添加失败";
     }
 

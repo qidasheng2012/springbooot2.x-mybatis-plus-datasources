@@ -8,6 +8,7 @@ import com.ssm.vo.StudentVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,9 +26,7 @@ public class StudentController {
     @PostMapping("/add")
     public String add(@RequestBody StudentVo student) {
         Student stu = new Student();
-        stu.setName(student.getName());
-        stu.setAge(student.getAge());
-        stu.setClassName(student.getClassName());
+        BeanUtils.copyProperties(student,stu);
         return studentService.insert(stu) ? "添加成功" : "添加失败";
     }
 

@@ -23,8 +23,9 @@ public class DataSourceAspect {
 
     @Before("pointCut() && @annotation(dataSource)")
     public void doBefore(DataSource dataSource) {
-        log.info("选择数据源---" + dataSource.value().getValue());
-        DataSourceContextHolder.setDataSource(dataSource.value().getValue());
+        String ds = dataSource.value().getValue();
+        log.info("选择数据源---[{}]", ds);
+        DataSourceContextHolder.setDataSource(ds);
     }
 
     @After("pointCut()")
