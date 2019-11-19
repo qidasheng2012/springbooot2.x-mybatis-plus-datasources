@@ -1,13 +1,16 @@
 server:
-  port: 8080
   servlet:
     context-path: /ssm
+
+spring:
+  profiles:
+    active: dev
 
 mybatis-plus:
   # 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml
   # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
   mapper-locations: classpath:/mapper/*Mapper.xml
-  #实体扫描，多个package用逗号或者分号分隔
+  # 别名包扫描，多个package用逗号或者分号分隔
   typeAliasesPackage: com.seawatebt.ssm.entity
   global-config:
     #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
@@ -32,22 +35,4 @@ mybatis-plus:
     #配置JdbcTypeForNull, oracle数据库必须配置
     jdbc-type-for-null: 'null'
 
-spring:
-  datasource:
-      druid:
-          db1:
-              username: root
-              password: 123456
-              driver-class-name: com.mysql.cj.jdbc.Driver
-              url: jdbc:mysql://localhost:3306/system?serverTimezone=Asia/Shanghai&characterEncoding=utf8
-              initialSize: 5
-              minIdle: 5
-              maxActive: 20
-          db2:
-              username: root
-              password: 123456
-              driver-class-name: com.mysql.cj.jdbc.Driver
-              url: jdbc:mysql://localhost:3306/server?serverTimezone=Asia/Shanghai&characterEncoding=utf8
-              initialSize: 5
-              minIdle: 5
-              maxActive: 20
+
