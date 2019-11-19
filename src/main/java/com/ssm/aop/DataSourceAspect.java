@@ -1,7 +1,7 @@
 package com.ssm.aop;
 
 import com.ssm.annotation.DataSource;
-import com.ssm.multiple.DataSourceContextHolder;
+import com.ssm.multiple.MultipleDataSource;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
@@ -24,11 +24,11 @@ public class DataSourceAspect {
     @Before("pointCut() && @annotation(dataSource)")
     public void doBefore(DataSource dataSource) {
         String ds = dataSource.value().getValue();
-        DataSourceContextHolder.setDataSource(ds);
+        MultipleDataSource.setDataSource(ds);
     }
 
     @After("pointCut()")
     public void doAfter() {
-        DataSourceContextHolder.clear();
+        MultipleDataSource.clear();
     }
 }
