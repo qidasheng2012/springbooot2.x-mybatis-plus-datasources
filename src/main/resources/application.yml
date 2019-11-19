@@ -55,7 +55,8 @@ mybatis-plus:
   # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
   mapper-locations: classpath:/mapper/*Mapper.xml
   # 别名包扫描，多个package用逗号或者分号分隔
-  typeAliasesPackage: com.ssm.entity
+  type-aliases-package: com.ssm.entity
+
   configuration:
     #配置返回数据库(column下划线命名&&返回java实体是驼峰命名)，自动匹配无需as（没开启这个，SQL需要写as： select user_id as userId）
     map-underscore-to-camel-case: true
@@ -78,6 +79,7 @@ mybatis-plus:
     #逻辑删除配置（下面3个配置）
     logic-delete-value: 4
     logic-not-delete-value: 0
+
 
 
 
