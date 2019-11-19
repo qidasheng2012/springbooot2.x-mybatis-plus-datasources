@@ -3,22 +3,17 @@ server:
 
 spring:
   datasource:
-    druid:
-      db1:
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/system?serverTimezone=Asia/Shanghai&characterEncoding=utf8
-        username: root
-        password: 123456
-        initialSize: 5
-        minIdle: 5
-        maxActive: 20
-      db2:
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/server?serverTimezone=Asia/Shanghai&characterEncoding=utf8
-        username: root
-        password: 123456
-        initialSize: 5
-        minIdle: 5
-        maxActive: 20
+    db1:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/system?serverTimezone=Asia/Shanghai&characterEncoding=utf8
+      username: root
+      password: 123456
+
+    db2:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/server?serverTimezone=Asia/Shanghai&characterEncoding=utf8
+      username: root
+      password: 123456
+
 
 
