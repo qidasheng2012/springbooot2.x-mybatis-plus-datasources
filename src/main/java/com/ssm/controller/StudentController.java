@@ -1,7 +1,7 @@
 package com.ssm.controller;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.mapper.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.ssm.entity.Student;
 import com.ssm.service.StudentService;
 import com.ssm.vo.StudentVo;
@@ -26,14 +26,14 @@ public class StudentController {
     @PostMapping("/add")
     public String add(@RequestBody StudentVo student) {
         Student stu = new Student();
-        BeanUtils.copyProperties(student,stu);
-        return studentService.insert(stu) ? "添加成功" : "添加失败";
+        BeanUtils.copyProperties(student, stu);
+        return studentService.save(stu) ? "添加成功" : "添加失败";
     }
 
     @ApiOperation("删除学生")
     @DeleteMapping("/delete/{id}")
     public String delete(@ApiParam("学生的主键id") @PathVariable(value = "id") Integer id) {
-        return studentService.deleteById(id) ? "删除成功" : "删除失败";
+        return studentService.removeById(id) ? "删除成功" : "删除失败";
     }
 
     @ApiOperation("修改学生")
@@ -45,7 +45,7 @@ public class StudentController {
     @ApiOperation(value = "查询学生")
     @GetMapping("/list")
     public List<Student> list() {
-        Wrapper<Student> wrapper = new EntityWrapper<>();
-        return studentService.selectList(wrapper);
+        Wrapper<Student> wrapper = new QueryWrapper<>();
+        return studentService.list(wrapper);
     }
 }
