@@ -5,6 +5,7 @@ server:
 spring:
   profiles:
     active: dev
+
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
@@ -14,11 +15,17 @@ spring:
       connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
       # 合并多个DruidDataSource的监控数据
       useGlobalDataSourceStat: true
+
       # 连接池配置
-      max-active: 20
+      #连接池建立时创建的初始化连接数
       initial-size: 1
-      max-wait-thread-count: 60000
+      #连接池中最大的活跃连接数
+      max-active: 20
+      #连接池中最小的活跃连接数
       min-idle: 1
+      # 配置获取连接等待超时的时间
+      max-wait: 60000
+      # 打开PSCache，并且指定每个连接上PSCache的大小
       pool-prepared-statements: true
       max-open-prepared-statements: 20
 
@@ -28,8 +35,11 @@ spring:
       min-evictable-idle-time-millis: 300000
 
       # 连接有效性检测
+      #是否在连接空闲一段时间后检测其可用性
       test-while-idle: true
+      #是否在获得连接后检测其可用性
       test-on-borrow: false
+      #是否在连接放回连接池后检测其可用性
       test-on-return: false
       validation-query: SELECT 1
 
