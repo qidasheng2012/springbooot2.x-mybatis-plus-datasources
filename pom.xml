@@ -10,10 +10,10 @@
     </parent>
 
     <groupId>com.seawaterbt</groupId>
-    <artifactId>data-sources</artifactId>
+    <artifactId>springbooot2.x-mybatis-plus-datasources</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
-    <name>data-sources</name>
+    <name>springbooot2.x-mybatis-plus-datasources</name>
     <description>SpringBoot2.x + MyBatis-plus + swagger2 + 多数据源</description>
 
     <properties>
